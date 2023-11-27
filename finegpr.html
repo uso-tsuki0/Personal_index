@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" type="image/png" href="images/logo_icon.png"/>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fine-GPR</title>
+  </head>
+  <body>
+    <a class = "skip" href="#main">Skip to Main Content</a>
+    <header>
+        <nav>
+          <ul class="nav_links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="aboutme.html">About Me</a></li>
+            <li class="active"><a href="portfolio.html">Projects</a></li>
+          </ul>
+        </nav>
+    </header>
+
+  <main id="main">
+    <h1 class="retailer">Research of Construction and verification of synthetic datasets based on GTA-V Game Engine</h1>
+    <h2>Overview</h2>
+    <div class="overview">
+        <div>
+            <h2>GOAL</h2>
+            <p>
+                Develop a generator which could generate multi-module synthetic datasets with GTA-V
+                game engine and scripting tools.
+            </p>
+        </div>
+        <div>
+            <h2>Result</h2>
+            <ul>
+                <li>A DLL file used as plugin for GTA-V</li>
+                <li>A python file for post-processing</li>
+            </ul>
+        </div>
+        <div>
+            <h2>Duration</h2>
+            <p>It's a haf-year research program from Sep 2022 to Mar 2023.</p>
+        </div>
+    </div>
+    <h2>Abstract</h2>
+    <p>
+        Pedestrian Re-identification (REID) refers to a computer vision task to identify pedestrians from various sources, which have been widely applied to security monitoring and intelligent transportation. However, current datasets are plagued with a lack of scale, resolution and annotations, which can be an obstacle to effective model training. Inspired by previous project FineGPR, which has used GTA-V for modeling and data-generation, our study aims to provide a more diverse, flexible and detailed dataset for REID model training on the basis of FineGPR.
+Using the GTA-V game engine as a simulation platform as well as ScriptHookV.Net as script runner, we generate the dataset. With full-screen RGB images from the FineGPR dataset as the foundation, we introduce skeletal point annotations similar to the CrowdPose, changes in camera height, depth map information, automatic figure boundary estimate as well as movement labels. The generated dataset surpasses the existing ones with its improved scale, environmental consistency, fine resolution, multidimensional information and detailed annotation. It provides a valuable resource for training supervised or semi-supervised REID models. Our study demonstrates the advantage of using existing game engine for generating large-scale, multi-module, and finely annotated datasets, pointing out the perspective direction of training dataset preparation. Future researches are needed to expand the dataset while exploring other applications of gaming engines in computer vision tasks.
+    </p>
+    <p>
+        <b>Keywords</b>: REID, GTA-V, game engine, data set, script
+    </p>
+    
+    <h2>Background</h2>
+    <p>
+        Pedestrian Re-identification (REID) refers to a computer vision task to identify pedestrians from various sources, which have been widely applied to security monitoring and intelligent transportation. However, the existing datasets for REID suffer from limitations in scale, resolution, and annotations, hindering effective model training. In this proposal, we aim to address this challenge based on the success of the FineGPR project, which employed the GTA-V game engine for data generation. Our study aims to create a diverse, flexible, and detailed dataset for REID model training, surpassing the limitations of current datasets.
+    </p>
+    <p>
+        The current research has introduced various datasets, such as Market-1501[1], CUHK03[2], DukeMTMC-reID[3], etc. These datasets are collected in real-world environments. However, such datasets have certain limitations, such as a small number of samples, high manual annotation costs, and privacy concerns. To address these issues, the article [4] proposes the use of the Grand Theft Auto V (GTA-V) game engine to generate the person re-identification dataset GPR-800. Compared to previous real datasets, GPR-800 has significant advantages: free sampling and annotation, large scale, diverse scenes, and high resolution [4]. However, GPR-800 also has room for improvement; its text labels only provide information such as time, environment, and character names, and the images in the dataset differ from those encountered in reality. For example, in terms of camera angles, the camera angles in GPR-800 are all horizontal, unlike the tilted angles of cameras in reality.
+    </p>
+    <div class="gallery">
+        <img src="img/fingpr0.png" alt="Market-1501">
+        <img src="img/fingpr1.png" alt="CUHK03">
+        <img src="img/fingpr2.jpg" alt="DukeMTMC-reID">
+        <img src="img/fingpr3.png" alt="GPR-800">
+    </div>
+
+    <h2>Overall objects</h2>
+    <p>
+    Construct a multi-module synthetic dataset for REID training based on the Fine-GPR project
+    <ul>
+        <li>More flexible sampling angles</li>
+        <li>Skeleton point module</li>
+        <li>Depth map</li>
+    </ul>
+	Preprocessing of dataset to improve efficiency and accuracy
+    <ul>
+        <li>Figure boundary estimation</li>
+        <li>Comprehensive correction of occlusion judgement</li>
+    </ul>
+    <div class="gallery">
+        <img src="img/fingpr4.png" alt="overview">
+    </div>
+
+    <h2>Methodology</h2>
+    <h3>Tools</h3>
+    <ul>
+        <li>Grand Theft Auto V (GTA-V)</li>
+        <li>ScriptHookV.Net</li>
+        <li>Native DB</li>
+    </ul>
+    <h3>Camera position</h3>
+    <p>
+        I expanded the degree of freedom of the camera, enabling it to cover a hemisphere above the character.
+        <ul>
+            <li>radius: 1m</li>
+            <li>Angle difference: pi/4</li>
+            <li>Use (theta, phi) to represent a point</li>
+            <li>17 positions in total</li>
+        </ul>
+    </p>
+    <div class="gallery">
+        <img src="img/fingpr5.png" alt="camera">
+        <img src="img/fingpr6.png" alt="photos">
+    </div>
+
+    <h3>Skeleton point</h3>
+    <p>
+        Skeleton points' positions were obtained through scripts and beam method was applied to judge occlusion. If the beam goes across another instance, there is an occlusion.
+    </p>
+    <div class="gallery">
+        <img src="img/fingpr7.png" alt="skeleton points">
+    </div>
+
+    <h3>Coming Soon</h3>
+
+
+
+
+
+
+
+    <footer>
+        <p>denso@umich.edu <br/>
+          Shuo Deng 2023</p>
+    </footer>
+
+
+
+  </main>
+    
+  </body>
+</html>

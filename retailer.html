@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" type="image/png" href="images/logo_icon.png"/>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>retailer project</title>
+  </head>
+  <body>
+    <a class = "skip" href="#main">Skip to Main Content</a>
+    <header>
+      <nav>
+        <ul class="nav_links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="aboutme.html">About Me</a></li>
+          <li class="active"><a href="portfolio.html">Projects</a></li>
+        </ul>
+      </nav>
+    </header>
+
+  <main id="main">
+    <h1 class="retailer">Retailer business analysis project</h1>
+    <h2>Overview</h2>
+    <div class="overview">
+      <div>
+          <h2>GOAL</h2>
+          <p>
+            The goal is to use the data provided by the category manager of chips to
+            analyze the relationships, develop customer segements, evaluate the performance
+            of trial shops as well as provide recommendations for future strategy.
+          </p>
+      </div>
+      <div>
+          <h2>Result</h2>
+          <ul>
+              <li>Visualization of distributions, patterns and trends</li>
+              <li>Customer segements and portraits</li>
+              <li>Evaluation of trial shop</li>
+              <li>Recommendations for future strategy</li>
+              <li>A report in "Pyramid Principles" style.</li>
+          </ul>
+      </div>
+      <div>
+          <h2>Duration</h2>
+          <p>The total time spent on the project is about 6 to 8 hours.</p>
+      </div>
+  </div>
+
+    <h2> Data Cleaning</h2>
+    <p>
+        There are two outliers in the transaction data with product quantity of 200, and the customer LYLTY_CARD_NBR is 226000. These findings suggest that the customer should be considered apart from general customers, thus we temporarily exclude the customer from the dataset.
+    </p>
+    <h2>EDA</h2>
+    <h3>Single Variable Inspection</h3>
+    <div class="gallery">
+        <img src="img/retailer1.png" alt="Weight_Distribution">
+        <img src="img/retailer2.png" alt="Brand_Distribution">
+        <img src="img/retailer3.png" alt="Pack_Size_Distribution">
+    </div>
+    <p>Kettle Mozzarella Basil & Pesto is the best seller. More customers prefer chips weighing 175g. Most customers buy 2 packs in a single purchase.</p>
+    <h3>Correlation inspection</h3>
+    <div class="gallery">
+        <img src="img/retailer4.png" alt="Correlation">
+        <img src="img/retailer5.png" alt="Distribution">
+        <img src="img/retailer6.png" alt="Pairplot">
+    </div>
+    <p>Product quantity and total sales have a considerably high correlation, revealing a linear relationship. We set the alpha value to 0.005, and since the p-value is less than 0.005, we conclude that there exist significant linear relationship between product quantity and total sales.</p>
+    <p>From the pair plot we could see that the quantatively features have obvious relationship. It also shows that premium customers has larger portion with high consumption.</p>
+    <p>
+        We noticed that the young singles/couples have a negative correlation with total sales and the order families have a positive correlation with total sales. After calculating the mean of different lifestage groups, we found that older families are more likely to buy more chips, and lifestage can significantly influence sales.
+    </p>
+
+    <h2>Classification</h2>
+    <p>
+        I used PCA for dimension reduction and K-means for clustering. The number of clusters is set to 3. The first two principal components are selected for visualization. Based on silhouette_score and the actual need, I choosed 3 as group number.
+    </p>
+    <div class="gallery">
+        <img src="img/retailer0.png" alt="clusters">
+    </div>
+    
+    <h2>Segement Analysis</h2>
+    <div class="gallery">
+        <img src="img/retailer7.png" alt="clusters">
+        <img src="img/retailer8.png" alt="clusters">
+        <img src="img/retailer9.png" alt="clusters">
+        <img src="img/retailer10.png" alt="clusters">
+        <img src="img/retailer11.png" alt="clusters">
+    </div>
+
+    <h2>Conclusion</h2>
+    <h3>Customer portraits</h3>
+    <p>
+        Through clustering, we classify the customers into three groups. From the previous analysis, we can conclude the following portraits for each group.
+    </p>
+    <p>
+        group 0: They consume less chips, buy small packs and they are less active. They are mainly formed with young single/couples, older single/couples, retirees. They prefer Deritos Corn, Smiths crinkle cut and sea salt flavor.
+    </p>
+    <p>
+        group 1: They comsume considerable chips, buy medium packs and they buy a lot. They are mainly formed with families, retirees and older single/couples. They They prefer Deritos Corn, Smiths crinkle cut and sea salt flavor.
+    </p>
+    <p>
+        group 2: They consume much chips, by big packs so they do not need to buy many times. They are mainly formed with young single/couples, older single/couples, retirees. They prefer old el paso and smiths crinkle.
+    </p>
+    <h3>Recommendations</h3>
+    <p>
+        We should lay more emphasis on the families, as they are the most significant contributors to sales, and one of their motivations might be their children. If so, we could design the package to be more attractive to children and even use low-cost toys as a bonus for multi-pack purchases.
+    </p>
+
+
+    <footer>
+      <p>denso@umich.edu <br/>
+        Shuo Deng 2023</p>
+    </footer>
+
+
+
+  </main>
+    
+  </body>
+</html>
