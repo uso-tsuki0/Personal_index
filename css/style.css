@@ -42,7 +42,7 @@ ul.nav_links{
     display: flex;
     justify-content: flex-start;
     background-color: rgb(57, 117, 201);
-    height: 50px;
+    height: 60px;
 }
 
 ul.nav_links li{
@@ -50,8 +50,9 @@ ul.nav_links li{
     grid-template-columns: 100%;
     justify-content: center;
     align-content: center;
-    width: 100px;
+    width: 120px;
     text-align: center;
+    transition: 1s;
 }
 
 ul.nav_links a{
@@ -60,11 +61,17 @@ ul.nav_links a{
     height: 100%;
     font-size: 120%;
     color: white;
+    margin: 5px;
+}
+
+ul.nav_links li:hover{
+    background-color: rgb(45, 90, 153);
+    height: 70px;
 }
 
 ul.nav_links li.active{
     background-color: rgb(28, 52, 86);
-    height: 70px;
+    height: 80px;
 }
 
 #main{
@@ -204,6 +211,7 @@ ul.nav_links li.active{
     width: 200px;
     color: white;
     place-items: baseline;
+    transition: 0.5s;
 }
 
 .background{
@@ -311,6 +319,9 @@ footer{
     .rolling{
         width: 80%;
     }
+    #main a.to_page:hover, .download:hover, main a.to_page:focus, .download:focus{
+        width: 400px;
+    }
 }
 
 @media screen and (min-width: 900px){
@@ -345,6 +356,10 @@ footer{
         width: 400px;
     }
 
+    #main a.to_page:hover, .download:hover, main a.to_page:focus, .download:focus{
+        width: 700px;
+    }
+
     .rolling{
         width: 70%;
     }
@@ -356,3 +371,12 @@ footer{
         max-width: 1100px;
     }
 }
+
+@media (prefers-reduced-motion: reduce) {
+    #main a.to_page, .download{
+        transition: none;
+    }
+    ul.nav_links li{
+        transition: none;
+    }
+}   
